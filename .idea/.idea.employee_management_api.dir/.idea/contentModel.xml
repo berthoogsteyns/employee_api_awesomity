@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_.19.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="assets/node_modules/@babel/core" t="IncludeRecursive" />
+      <e p="assets/node_modules/@babel/preset-env" t="IncludeRecursive" />
+      <e p="assets/node_modules/@types" t="IncludeRecursive" />
+      <e p="assets/node_modules/babel-loader" t="IncludeRecursive" />
+      <e p="assets/node_modules/copy-webpack-plugin" t="IncludeRecursive" />
+      <e p="assets/node_modules/css-loader" t="IncludeRecursive" />
+      <e p="assets/node_modules/mini-css-extract-plugin" t="IncludeRecursive" />
+      <e p="assets/node_modules/node-sass" t="IncludeRecursive" />
+      <e p="assets/node_modules/optimize-css-assets-webpack-plugin" t="IncludeRecursive" />
+      <e p="assets/node_modules/sass-loader" t="IncludeRecursive" />
+      <e p="assets/node_modules/terser-webpack-plugin" t="IncludeRecursive" />
+      <e p="assets/node_modules/webpack" t="IncludeRecursive" />
+      <e p="assets/node_modules/webpack-cli" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
