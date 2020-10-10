@@ -1,4 +1,5 @@
 defmodule EmployeeManagementApiWeb.EmployeeController do
+  require Logger
   use EmployeeManagementApiWeb, :controller
 
   alias EmployeeManagementApi.Store
@@ -9,6 +10,24 @@ defmodule EmployeeManagementApiWeb.EmployeeController do
   def index(conn, _params) do
     employees = Store.list_employees()
     render(conn, "index.json", employees: employees)
+  end
+
+  def activate(conn, %{"employee_id" => id}) do
+
+
+    employee = Store.get_employee!(id)
+
+    with {:ok, %Employee{} = employee} <- Store.update_employee(employee, employee=) do
+      render(conn, "show.json", employee: employee)
+    end
+  end
+
+  def suspend(conn, %{"employee_id" => id}) do
+    employee = Store.get_employee!(id)
+
+    with {:ok, %Employee{} = employee} <- Store.update_employee(employee, employee) do
+      render(conn, "show.json", employee: employee)
+    end
   end
 
   def create(conn, %{"employee" => employee_params}) do

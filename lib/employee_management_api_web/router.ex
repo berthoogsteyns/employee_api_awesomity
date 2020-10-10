@@ -15,7 +15,12 @@ defmodule EmployeeManagementApiWeb.Router do
 
   scope "/api", EmployeeManagementApiWeb do
     pipe_through :api
-    resources "/employees", EmployeeController, except: [:new, :edit]
+    resources "/employees", EmployeeController, except: [:new, :edit] do
+      put("/activate", EmployeeController, :activate, as: :activate)
+      put("/suspend", EmployeeController, :suspend, as: :suspend)
+    end
+
+
   end
 
   scope "/", EmployeeManagementApiWeb do

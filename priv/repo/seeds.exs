@@ -21,4 +21,4 @@ EmployeeManagementApi.Repo.insert!(%EmployeeManagementApi.Store.Employee{
     position: "developer",
     status: true
 
-})
+}, )
