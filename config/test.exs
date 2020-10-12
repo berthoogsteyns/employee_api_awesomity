@@ -20,3 +20,5 @@ config :employee_management_api, EmployeeManagementApiWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :employee_management_api, EmployeeManagementApiWeb.Mailer, adapter: Bamboo.TestAdapter

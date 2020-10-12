@@ -1,5 +1,5 @@
 use Mix.Config
-
+import_config "dev.secret.exs"
 # Configure your database
 config :employee_management_api, EmployeeManagementApi.Repo,
   username: "postgres",

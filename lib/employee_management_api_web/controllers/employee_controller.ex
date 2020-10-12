@@ -12,20 +12,46 @@ defmodule EmployeeManagementApiWeb.EmployeeController do
     render(conn, "index.json", employees: employees)
   end
 
-  def activate(conn, %{"employee_id" => id}) do
+  def search(conn, %{"search_querry" => search_querry}) do
+    employee = Store.get_employee!(search_querry)
 
+    render(conn, "show.json", employee: employee)
+  end
 
-    employee = Store.get_employee!(id)
+  def activate(conn, %{"employee_id" => employee_id}) do
+    employee = Store.get_employee!(employee_id)
 
-    with {:ok, %Employee{} = employee} <- Store.update_employee(employee, employee=) do
+    activated = %{
+      id: employee.id,
+      name: employee.name,
+      national_id: employee.national_id,
+      phone: employee.phone,
+      email: employee.email,
+      date_of_birth: employee.date_of_birth,
+      status: true,
+      position: employee.position
+    }
+
+    with {:ok, %Employee{} = employee} <- Store.update_employee(employee, activated) do
       render(conn, "show.json", employee: employee)
     end
   end
 
-  def suspend(conn, %{"employee_id" => id}) do
-    employee = Store.get_employee!(id)
+  def suspend(conn, %{"employee_id" => employee_id}) do
+    employee = Store.get_employee!(employee_id)
 
-    with {:ok, %Employee{} = employee} <- Store.update_employee(employee, employee) do
+    suspended = %{
+      id: employee.id,
+      name: employee.name,
+      national_id: employee.national_id,
+      phone: employee.phone,
+      email: employee.email,
+      date_of_birth: employee.date_of_birth,
+      status: false,
+      position: employee.position
+    }
+
+    with {:ok, %Employee{} = employee} <- Store.update_employee(employee, suspended) do
       render(conn, "show.json", employee: employee)
     end
   end
@@ -46,7 +72,6 @@ defmodule EmployeeManagementApiWeb.EmployeeController do
 
   def update(conn, %{"id" => id, "employee" => employee_params}) do
     employee = Store.get_employee!(id)
-
     with {:ok, %Employee{} = employee} <- Store.update_employee(employee, employee_params) do
       render(conn, "show.json", employee: employee)
     end

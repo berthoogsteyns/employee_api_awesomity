@@ -68,6 +68,7 @@ defmodule EmployeeManagementApi.Store do
 
   """
   def update_employee(%Employee{} = employee, attrs) do
+
     employee
     |> Employee.changeset(attrs)
     |> Repo.update()
